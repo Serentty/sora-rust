@@ -3,6 +3,7 @@ target ?= $(arch)-unknown-linux-gnu
 sora := target/$(target)/debug/libsora.a
 kernel := build/kernel-$(arch).bin
 iso := build/sora-$(arch).iso
+librustc_unicode := build/librustc_unicode.rlib
 
 linker_script := src/arch/$(arch)/linker.ld
 grub_cfg := src/arch/$(arch)/grub.cfg
