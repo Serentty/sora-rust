@@ -27,7 +27,7 @@ $(iso): $(kernel) $(grub_cfg)
 	@mkdir -p build/iso/boot/grub
 	@cp $(kernel) build/iso/boot/kernel.bin
 	@cp $(grub_cfg) build/iso/boot/grub
-	@grub-mkrescue -o $(iso) build/iso 2> /dev/null
+	@grub-mkrescue -d /usr/lib/grub/i386-pc/ -o $(iso) build/iso 2> /dev/null
 	@rm -r build/iso
 
 $(kernel): cargo $(sora) $(assembly_object_files) $(linker_script)
