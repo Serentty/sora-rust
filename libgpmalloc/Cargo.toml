@@ -1,6 +1,6 @@
 [package]
 name = "gpmalloc"
-version = "0.0.1"
+version = "0.0.0"
 authors = ["Gareth Poole"]
 
 [lib]

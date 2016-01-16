@@ -1,0 +1,4 @@
+[submodule "cargo"]
+	path = cargo
+	url = https://github.com/brson/cargo
+	branch = rustflags

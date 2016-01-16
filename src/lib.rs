@@ -8,8 +8,10 @@
 
 extern crate rlibc;
 extern crate spin;
-extern crate gpmalloc;
+extern crate alloc;
 extern crate collections;
+
+extern crate gpmalloc;
 
 #[macro_use]
 #[cfg(target_arch="x86_64")] #[path="arch/x86_64/mod.rs"]
@@ -28,7 +30,11 @@ use collections::*;
 pub extern fn kernel_main() {
 	arch::vga::WRITER.lock().clear_screen();
 	arch::serial::WRITER.lock().setup();
-	println!("Sora - now with vectors!");
+	let v = vec![1, 2, 3, 4];
+	println!("Sora - now with vectors! Here's one:");
+	for item in v {
+		println!("{}\n", item)
+	}
 	loop {}
 }
 
