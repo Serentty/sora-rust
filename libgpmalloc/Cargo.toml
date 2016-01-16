@@ -1,0 +1,7 @@
+[package]
+name = "gpmalloc"
+version = "0.0.1"
+authors = ["Gareth Poole"]
+
+[lib]
+crate-type = ["rlib"]

@@ -34,7 +34,7 @@ $(kernel): cargo $(sora) $(assembly_object_files) $(linker_script)
 	@ld -n --gc-sections -T $(linker_script) -o $(kernel) $(assembly_object_files) $(sora)
 
 cargo:
-	@cargo rustc --target $(target) --  -Z no-landing-pads
+	@cargo rustc  --verbose --target $(target) --  -Z no-landing-pads
 
 build/arch/$(arch)/%.o: src/arch/$(arch)/%.s
 	@mkdir -p $(shell dirname $@)

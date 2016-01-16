@@ -10,11 +10,8 @@ crate-type = ["staticlib"]
 rlibc = "0.1.4"
 spin = "0.3.4"
 
-[dependencies.rustc_unicode]
-path = "librustc_unicode"
-
-[dependencies.alloc]
-path = "liballoc"
-
 [dependencies.collections]
-path = "libcollections"
+path = "stdlib/libcollections"
+
+[dependencies.gpmalloc]
+path = "libgpmalloc"
