@@ -17,17 +17,12 @@ assembly_object_files := $(patsubst src/arch/$(arch)/%.s, \
 all: $(kernel)
 
 clean:
-	@rm -rf target sysroot stdlib/libcore .patched
+	@rm -rf target sysroot
 
 run: $(iso)
 	qemu-system-x86_64 -no-reboot -serial stdio -cdrom $(iso)
 
 iso: $(iso)
-
-.patched: stdlib/libcore_nofp.patch
-	@cp -rf stdlib/libcore-unpatched stdlib/libcore
-	@cd stdlib; patch -p0 < libcore_nofp.patch
-	touch .patched
 
 $(iso): $(kernel) $(grub_cfg)
 	@mkdir -p build/iso/boot/grub
@@ -46,8 +41,6 @@ build/arch/$(arch)/%.o: src/arch/$(arch)/%.s
 	@mkdir -p $(shell dirname $@)
 	nasm -f elf64 $< -o $@
 
-stdlib/libcore/src/lib.rs: .patched
-
 $(sysroot_libs)/libcore.rlib: stdlib/libcore/src/lib.rs
 	@mkdir -p $(sysroot_libs)
-	rustc -o $@ $< --target=$(target_json) --cfg disable_float
+	rustc -o $@ $< --target=$(target_json)

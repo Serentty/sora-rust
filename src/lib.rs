@@ -1,8 +1,6 @@
-#![feature(lang_items)]
 #![feature(const_fn)]
 #![feature(asm)]
 #![feature(braced_empty_structs)]
-#![feature(no_std)]
 #![feature(collections)]
 #![no_std]
 
@@ -37,5 +35,3 @@ pub extern fn kernel_main() {
 	}
 	loop {}
 }
-
-

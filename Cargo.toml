@@ -6,6 +6,10 @@ authors = ["Gareth Poole"]
 [lib]
 crate-type = ["staticlib"]
 
+[features]
+default = ["external_funcs"]
+external_funcs = []
+
 [dependencies]
 rlibc = "0.1.4"
 spin = "0.3.4"

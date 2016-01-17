@@ -1,7 +1,0 @@
-[package]
-name = "rustc_unicode"
-version = "0.0.0"
-authors = ["Rust Developers"]
-
-[lib]
-crate-type = ["staticlib"]
