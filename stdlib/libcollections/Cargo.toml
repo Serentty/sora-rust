@@ -5,3 +5,9 @@ authors = ["Rust Developers"]
 
 [lib]
 crate-type = ["rlib"]
+
+[dependencies.rustc_unicode]
+path = "../librustc_unicode"
+
+[dependencies.alloc]
+path = "../liballoc"

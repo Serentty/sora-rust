@@ -4,4 +4,4 @@ version = "0.0.0"
 authors = ["Rust Developers"]
 
 [lib]
-crate-type = ["staticlib"]
+crate-type = ["rlib"]
