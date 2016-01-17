@@ -46,6 +46,8 @@ build/arch/$(arch)/%.o: src/arch/$(arch)/%.s
 	@mkdir -p $(shell dirname $@)
 	nasm -f elf64 $< -o $@
 
-$(sysroot_libs)/libcore.rlib: stdlib/libcore/src/lib.rs .patched
+stdlib/libcore/src/lib.rs: .patched
+
+$(sysroot_libs)/libcore.rlib: stdlib/libcore/src/lib.rs
 	@mkdir -p $(sysroot_libs)
 	rustc -o $@ $< --target=$(target_json) --cfg disable_float
